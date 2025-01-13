@@ -1,47 +1,49 @@
-# Network_Isolation_and_Security
-mutilpasss launch --name teamA 
-sudo apt update
-sudo apt install docker.io
+**Goal:** Create isolated networking environments and secure them using namespaces and Linux tools.
 
+**Requirements:**
 
-To create a new network namespace for a pair of containers called Team A and Team B, and then move their network interfaces into these namespaces, follow these steps:
+1. Use Docker to set up two containers simulating isolated environments (e.g., "Team A" and "Team B").
+2. Use Linux network namespaces to ensure the containers cannot communicate directly.
+3. Create a bridge network that allows selective communication between containers using `iptables`.
+4. Test the setup using tools like `ping` and `curl`.
+5. Write a script to automate the creation of this setup.
 
-Create Network Namespaces:
-Create a network namespace for Team A:
-````ip netns add teamA```
+**To Begin:**
 
-Create a network namespace for Team B:
-```ip netns add teamB```
+clone this repository by running the command 
+```sh
+git clone https://github.com/Dericko681/Network_Isolation_and_Security.git
+```
+change your working diresotry to this respository
+```sh
+Network_Isolation_and_Security
+```
+We will use multipass virtual machine for this project
 
-Create Virtual Ethernet (veth) Interfaces:
-Create a veth interface pair:
-```ip link add veth-teamA type veth peer name veth-teamB```
+check if multipass is installed
+```sh
+multpass --version
+```
+If you do not have multipass installed, install by running the script multipass.sh
+```sh
+./multipass.sh
+```
 
-This command creates two interfaces, veth-teamA and veth-teamB, which are connected to each other.
-Move Interfaces into Network Namespaces:
-Move veth-teamA into the Team A namespace:
-```ip link set veth-teamA netns teamA```
+To use Docker to set up two containers simulating isolated environments (e.g., "Team A" and "Team B"), Study and run the file containers.sh
 
-Move veth-teamB into the Team B namespace:
-```ip link set veth-teamB netns teamB```
+```sh
+ ./containers.sh
+```
+To use Linux network namespaces to ensure the containers cannot communicate directly study and run namepace.sh
+```sh
+./namespace.sh
+```
+To create a bridge network that allows selective communication between containers using iptables stduy and run the script network.sh
+```sh
+./network.sh
+```
 
-Configure IP Addresses:
-Assign an IP address to veth-teamA in the Team A namespace:
-```ip netns exec teamA ip addr add 192.168.1.1/24 dev veth-teamA```
-
-Assign an IP address to veth-teamB in the Team B namespace:
-```ip netns exec teamB ip addr add 192.168.1.2/24 dev veth-teamB```
-
-Bring Up Interfaces:
-Bring up the veth-teamA interface in the Team A namespace:
-```ip netns exec teamA ip link set veth-teamA up```
-`
-Bring up the veth-teamB interface in the Team B namespace:
-```ip netns exec teamB ip link set veth-teamB up```
-
-Verify Connectivity:
-Ping from Team A to Team B to ensure connectivity:
-```ip netns exec teamA ping 192.168.1.2```
-
-Ping from Team B to Team A to ensure connectivity:
-```ip netns exec teamB ping 192.168.1.1```
+**Team**:
+Derick
+Joy
+Nathan
