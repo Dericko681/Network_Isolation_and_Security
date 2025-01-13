@@ -44,6 +44,9 @@ To create a bridge network that allows selective communication between container
 ```
 
 **Team**:
+
 Derick
+
 Joy
+
 Nathan
