@@ -14,7 +14,7 @@ clone this repository by running the command
 ```sh
 git clone https://github.com/Dericko681/Network_Isolation_and_Security.git
 ```
-change your working diresotry to this respository
+change your working directory to this respository
 ```sh
 Network_Isolation_and_Security
 ```
