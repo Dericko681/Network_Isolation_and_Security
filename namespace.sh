@@ -23,7 +23,7 @@ fi
 #Move Interfaces into Network Namespaces:
 `sudo ip link set veth-teamA netns teamA`
 if [[ $? -eq 0 ]]; then
-    echo "added teanA to veth-teamA"
+    echo "added teamA to veth-teamA"
 else
     echo "`sudo ip link set veth-teamA netns teamA` failed"
 fi
