@@ -1,3 +1,3 @@
 #!/bin/bash
 #install multipass
-`snap install multipass`
+`sudo snap install multipass`
