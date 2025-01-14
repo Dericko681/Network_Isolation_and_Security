@@ -18,6 +18,13 @@ change your working directory to this respository
 ```sh
 Network_Isolation_and_Security
 ```
+Let us give execute permissions to our files
+```sh
+chmod +x multipass.sh
+chmod +x containers.sh
+chmod +x namespace.sh
+chmod +x network.sh
+```
 We will use multipass virtual machine for this project
 
 check if multipass is installed
