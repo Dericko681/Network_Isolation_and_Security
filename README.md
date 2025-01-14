@@ -22,7 +22,7 @@ We will use multipass virtual machine for this project
 
 check if multipass is installed
 ```sh
-multpass --version
+multipass --version
 ```
 If you do not have multipass installed, install by running the script multipass.sh
 ```sh
